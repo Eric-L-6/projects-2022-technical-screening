@@ -17,11 +17,16 @@ A good solution is favourable but does not guarantee a spot in Projects because
 we will also consider many other criteria.
 """
 import json
+import re
 
 # NOTE: DO NOT EDIT conditions.json
 with open("./conditions.json") as f:
     CONDITIONS = json.load(f)
     f.close()
+
+
+def and_cond()
+
 
 def is_unlocked(courses_list, target_course):
     """Given a list of course codes a student has taken, return true if the target_course 
@@ -34,6 +39,40 @@ def is_unlocked(courses_list, target_course):
     """
     
     # TODO: COMPLETE THIS FUNCTION!!!
+    
+    #case 1 -> simple or
+    if ('')
+
+
+    #special conditions
+
+    #brackets
+    if ("(" in CONDITIONS[target_course] or ")" in CONDITIONS[target_course]):
+        bracket_cond = filter(None, re.split("[()]" , CONDITIONS[target_course]))
+
+    #AND
+    if ("AND" in CONDITIONS[target_course] or "and" in CONDITIONS[target_course]):
+        and_cond = filter(None, re.split("[and, AND]" , CONDITIONS[target_course]))
+    
+        and_val = True
+        for (course in and_cond):
+            if course not in courses_list:
+                and_val = False
+                break
+    
+    #OR
+    if ("or" in CONDITIONS[target_course] or "OR" in CONDITIONS[target_course]):
+        or_cond = filter(None, re.split("[or, OR]" , CONDITIONS[target_course]))
+
+        or_val = False
+        for (course in or_cond):
+            if course in courses_list:
+                or_val = True
+                break
+            
+
+
+    cond = CONDITIONS[target_course].split()
     
     return True
 
